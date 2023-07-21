@@ -1,14 +1,9 @@
 import { CartContext } from "../../context/cart.context"
 import "./checkout-item.style.scss"
-
-import React, { useContext } from 'react'
-
-
-
-
+import { useContext } from 'react'
 
 export default function CheckoutItem({ cartItem }) {
-    const { name, imageUrl, price, quantity, id } = cartItem
+    const { name, imageUrl, price, quantity} = cartItem
 
 
     const { addItemToCart, removeItemToCart, clearItemFromCart } = useContext(CartContext)
