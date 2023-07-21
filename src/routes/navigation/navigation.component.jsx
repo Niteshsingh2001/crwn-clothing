@@ -1,5 +1,5 @@
 import { Fragment, useContext } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { ReactComponent as CrownLogo } from '../../assets/crown.svg'
 import { NavigationContainer, NavLinks, NavLink, LogoContainer } from "./navigation.style";
 import { UserContext } from '../../context/user.context'
@@ -12,7 +12,7 @@ import { CartContext } from '../../context/cart.context'
 const Navigation = () => {
 
     const { currentUser } = useContext(UserContext)
-    const { isCartOpen, cartCount } = useContext(CartContext)
+    const { isCartOpen } = useContext(CartContext)
 
     const handleSignOut = async () => {
         await signOutUser()
