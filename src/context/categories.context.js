@@ -5,7 +5,6 @@ export const CategoriesContext = createContext({
     categoriesMap: []
 })
 
-
 export function CategoriesProvider({ children }) {
 
     const [categoriesMap, setCategoriesMap] = useState({})
