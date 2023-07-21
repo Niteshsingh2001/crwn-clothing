@@ -18,6 +18,7 @@ const Navigation = () => {
         await signOutUser()
 
     }
+    console.log(currentUser)
 
     return (
         <Fragment>
@@ -29,11 +30,7 @@ const Navigation = () => {
                     <NavLink to="/shop">
                         Shop
                     </NavLink>
-                    {!currentUser ? <NavLink to="/auth">
-                        Sign In
-                    </NavLink> : <NavLink onClick={handleSignOut}>
-                        Sign Out
-                    </NavLink>}
+                    {currentUser ? <NavLink onClick={handleSignOut}>Sign Out</NavLink> : <NavLink to="/auth">Sign In</NavLink>}
                     <CartIcon />
                 </NavLinks>
                 {isCartOpen && <CartDropdown />}
