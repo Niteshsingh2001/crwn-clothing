@@ -1,7 +1,7 @@
 import "./Cart-Item.style.scss"
 
 export default function CardItem({ CardItems }) {
-    console.log(CardItems)
+    // console.log(CardItems)
 
     const { name, imageUrl, price, quantity } = CardItems
 
