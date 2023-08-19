@@ -4,26 +4,30 @@ import "./shop.style.scss"
 import CategoriesPreview from "../categories-preview/categories-preview.component";
 import Category from "../category/category.component";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
+// import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 import { useEffect } from "react";
-import { setCategories } from "../../store/category/category.actiom";
-import { selectCartItems } from "../../store/cart/cart.selector";
+import { fetchCategoriesStartAsync } from "../../store/category/category.actiom";
+// import { selectCartItems } from "../../store/cart/cart.selector";
 
 const Shop = () => {
     const dispatch = useDispatch();
 
-    
+
+    // useEffect(() => {
+    //     // const getCategoriesMap = async () => {
+    //     //     // const categorieArray = await getCategoriesAndDocuments('categories')
+    //     //     // console.log(categorieArray);
+
+    //     // }
+    //     // getCategoriesMap();
+
+    //     dispatch(fetchCategoriesStartAsync ())
+
+    // }, [])
+
     useEffect(() => {
-        const getCategoriesMap = async () => {
-            const categorieArray = await getCategoriesAndDocuments('categories')
-            console.log(categorieArray);
-            dispatch(setCategories(categorieArray))
-        }
-        getCategoriesMap();
-
-    }, [dispatch])
-
-
+        dispatch(fetchCategoriesStartAsync());
+    }, []);
 
     return (
         <Routes>
