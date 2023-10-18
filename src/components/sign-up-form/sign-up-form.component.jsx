@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { createAuthUserWithEmailAndPassword, createUserDocFromAuth } from '../../utils/firebase/firebase.utils';
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 import FormInput from '../form-input/form-input.component';
 import "./sign-up-form.style.scss"
 import Button from '../button/button.component';
@@ -32,12 +32,12 @@ export default function SignupForm() {
 
         try {
             const { user } = await createAuthUserWithEmailAndPassword(email, password)
-            await createUserDocFromAuth(user, { displayName })
+            await createUserDocumentFromAuth(user, { displayName })
 
 
         } catch (error) {
             if (error.code === "auth/email-already-in-use") {
-                alert("user alerady exist with this email")
+                alert("user already exist with this email")
             } else {
                 console.log("Something went Wrong " + error)
             }
